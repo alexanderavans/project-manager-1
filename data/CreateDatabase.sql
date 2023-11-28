@@ -10,18 +10,30 @@ START TRANSACTION;
 
 DROP TABLE IF EXISTS `TM1_Task`;
 DROP TABLE IF EXISTS `TM1_Project`;
+DROP TABLE IF EXISTS `TM1_User`;
+
+CREATE TABLE `TM1_User` (
+  `userId` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `username` varchar(40) DEFAULT NULL,
+  `password` varchar(40) DEFAULT 'geheim',
+  `role` varchar(10) DEFAULT 'worker'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `TM1_User` (`userId`, `username`, `password`, `role`) VALUES 
+(1, 'Henk', 'henk-is-gek', 'manager');
 
 CREATE TABLE `TM1_Project` (
   `projectId` int(11) PRIMARY KEY AUTO_INCREMENT,
   `title` varchar(40) DEFAULT NULL,
   `description` text DEFAULT NULL,
-  `owner` varchar(40) DEFAULT NULL
+  `owner` varchar(40) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `TM1_Project` (`projectId`, `title`, `description`, `owner`) VALUES
-(1, 'Maria\'s kamer opknappen', 'Na deze opknapbeurt zal Maria\'s kamer er weer piekfijn uitzien', 'Maria'),
-(3, 'Computer opnieuw installeren', 'Van Windows 8.1 naar Windows 10', 'Maria'),
-(4, 'Huis schoonmaken', 'Van boven tot onder', 'Frans');
+INSERT INTO `TM1_Project` (`projectId`, `title`, `description`, `owner`, `status`) VALUES
+(1, 'Maria\'s kamer opknappen', 'Na deze opknapbeurt zal Maria\'s kamer er weer piekfijn uitzien', 'Maria',''),
+(3, 'Computer opnieuw installeren', 'Van Windows 8.1 naar Windows 10', 'Maria', 'klaar'),
+(4, 'Huis schoonmaken', 'Van boven tot onder', 'Frans','');
 
 CREATE TABLE `TM1_Task` (
   `projectId` int(11) NOT NULL,

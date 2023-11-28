@@ -38,24 +38,26 @@ class ProjectDAO extends DAO {
 
     private function insert(Project $project) {
         $sql = 'INSERT INTO `TM1_Project` '
-                . ' (title, description, owner)'
-                . ' VALUES (?, ?, ?)';
+                . ' (title, description, owner, status)'
+                . ' VALUES (?, ?, ?, ?)';
         $args = [
             $project->getTitle(),
             $project->getDescription(),
             $project->getOwner(),
+            $project->getStatus(),
         ];
         $this->execute($sql, $args);
     }
 
     private function update(Project $project) {
         $sql = 'UPDATE `TM1_Project` '
-                . ' SET title = ?, description = ?, owner = ? '
+                . ' SET title = ?, description = ?, owner = ?, status = ? '
                 . ' WHERE projectId = ?';
         $args = [
             $project->getTitle(),
             $project->getDescription(),
             $project->getOwner(),
+            $project->getStatus(),
             $project->getProjectId()
         ];
         $this->execute($sql, $args);

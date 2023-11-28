@@ -22,6 +22,7 @@ class ProjectList extends View {
                 <th>Project</th>
                 <th>Description</th>
                 <th>Owner</th>
+                <th>Status</th>
             </tr>
             <?php
             while ($projectDAO->hasNext()) {
@@ -33,6 +34,7 @@ class ProjectList extends View {
                     <td><?= $project->getTitle() ?></td>
                     <td><?= $project->getDescription() ?></td>
                     <td><?= $project->getOwner() ?></td>
+                    <td><?= $project->getStatus() ?></td>
                 </tr>
                 <?php
             }

@@ -14,7 +14,8 @@ class ProjectEdit extends View {
             <input type="hidden" name="projectId" value="<?= $project->getProjectId() ?>">
             <label>Title<input name="title" value="<?= $project->getTitle() ?>"></label>   
             <label>Owner<input name="owner" value="<?= $project->getOwner() ?>"></label>   
-            <label>Description<textarea name="description"><?= $project->getDescription() ?></textarea></label>   
+            <label>Description<textarea name="description"><?= $project->getDescription() ?></textarea></label>
+            <label>Status<input name="status" value="<?= $project->getStatus() ?>"></label>    
         </form>
 
         <nav>

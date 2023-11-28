@@ -10,6 +10,7 @@ class ResetController extends Controller {
         $sql = file_get_contents('data/CreateDatabase.sql');
         $db->execute($sql);
         $_SESSION['projectId'] = '';
+        $_SESSION['userId'] = '';
         return 'view=Home';
     }
 
