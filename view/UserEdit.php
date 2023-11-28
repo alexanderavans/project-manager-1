@@ -15,7 +15,13 @@ class UserEdit extends View {
             <input type="hidden" name="userId" value="<?= $user->getUserId() ?>">
             <label>Username<input name="username" value="<?= $user->getUsername() ?>"></label>   
             <label>Password<input name="password" value="<?= $user->getPassword() ?>"></label>   
-            <label>Role<input name="role" value="<?= $user->getRole() ?>"></label>    
+            <label>Role 
+            <select name="role">
+                <option value="manager" <?= ($user->getRole() === 'manager') ? 'selected' : '' ?>>Manager</option>
+                <option value="medewerker" <?= ($user->getRole() === 'medewerker') ? 'selected' : '' ?>>Medewerker</option>
+            </select>
+        </label>
+              
         </form>
 
         <nav>

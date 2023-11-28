@@ -16,11 +16,16 @@ CREATE TABLE `TM1_User` (
   `userId` int(11) PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(40) DEFAULT NULL,
   `password` varchar(40) DEFAULT 'geheim',
-  `role` varchar(10) DEFAULT 'worker'
+  `role` varchar(10) DEFAULT 'medewerker'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `TM1_User` (`userId`, `username`, `password`, `role`) VALUES 
-(1, 'Henk', 'henk-is-gek', 'manager');
+(1, 'Henk', 'henk-is-gek', 'manager'),
+(2, 'Piet', 'henk-is-te-gek', 'medewerker'),
+(3, 'Klaas', 'henk-is-knettergek', 'medewerker'),
+(6, 'Maria', 'henk123', 'manager'),
+(9, 'Truus', 'henk-is-mal', 'medewerker'),
+(10, 'Frans', 'frans123', 'manager');
 
 CREATE TABLE `TM1_Project` (
   `projectId` int(11) PRIMARY KEY AUTO_INCREMENT,
@@ -47,10 +52,10 @@ CREATE TABLE `TM1_Task` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `TM1_Task` (`taskNumber`, `projectId`, `title`, `description`, `worker`, `status`) VALUES
-(1, 1, 'Plinten schilderen', 'Graag mat wit RAL9010. Spijkergaten eerst plamuren.', 'Maria', 'done'),
-(2, 1, 'Vensterbank vastmaken', 'De vensterbank ligt er nu los op. Geen schroeven of spijkers gebruiken, maar montagekit. Randen afwerken met acrilaatkit', 'John', 'to do'),
+(1, 1, 'Plinten schilderen', 'Graag mat wit RAL9010. Spijkergaten eerst plamuren.', 'Piet', 'busy'),
+(2, 1, 'Vensterbank vastmaken', 'De vensterbank ligt er nu los op. Geen schroeven of spijkers gebruiken, maar montagekit. Randen afwerken met acrilaatkit', 'Klaas', 'busy'),
 (4, 1, 'Behangen', 'De behangrollen liggen al een jaar klaar bij de behangtafel op zolder achter de oude fietsen.', '', 'to do'),
-(5, 3, 'Juiste versie kiezen', 'PRO?, Nederlandstalig?', 'Latifa', 'to do'),
+(5, 3, 'Juiste versie kiezen', 'PRO?, Nederlandstalig?', 'Klaas', 'done'),
 (6, 4, 'Stofzuigen', '', '', 'to do');
 
 SET FOREIGN_KEY_CHECKS=1;
