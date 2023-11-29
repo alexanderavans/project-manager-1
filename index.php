@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
 // basic setup
-$title = 'Project Manager 2.00';
+$title = 'Project Manager 1.44';
 session_start();
 set_include_path('./' . PATH_SEPARATOR . '../'); // include from any level
 
@@ -48,6 +48,7 @@ if (empty($view)) {
     'ProjectList',
     'TaskList',
     'UserList',
+    'Login',
     'UserEdit',
     'TaskEdit',
     'ProjectEdit',
@@ -57,15 +58,29 @@ if (empty($view)) {
     $view = 'Error';
   }
 }
-// views available in menu
+// Set views available in menu based on role
+$userRole = $_SESSION['role'] ?? null;
+
 $menu = [
   // menu item => view
+  //https://stackoverflow.com/questions/3325009/add-data-dynamically-to-an-array
   'Home' => 'Home',
-  'Projects' => 'ProjectList',
-  'Tasks' => 'TaskList',
-  'Users' => 'UserList',
-  'Docs' => 'Docs',
+  'Login' => 'Login'
 ];
+
+// Voeg 'Projects' toe aan het menu als de rol 'manager' is
+if ($userRole === 'manager') {
+  $menu['Projects'] = 'ProjectList';
+}
+
+// Voeg 'Tasks' toe aan het menu voor zowel 'manager' als 'medewerker'
+if ($userRole === 'manager' || $userRole === 'medewerker') {
+  $menu['Tasks'] = 'TaskList';
+}
+
+$menu['Users'] = 'UserList';
+$menu['Docs'] = 'Docs';
+
 ?>
 <!doctype html>
 <html lang='nl'>
@@ -86,7 +101,14 @@ $menu = [
   </header>
   <nav>
     <?php foreach ($menu as $menu_item => $menu_view) { ?>
-      <a href="?view=<?= $menu_view ?>">
+      <?php
+      // Pas de stijl van de dynamisch ingesloten menu-items aan
+      $style = '';
+      if ($menu_item === 'Projects' || $menu_item === 'Tasks') {
+        $style = 'color: red;'; 
+      }
+      ?>
+      <a href="?view=<?= $menu_view ?>" style="<?= $style ?>">
         <?= $menu_item ?>
       </a>
     <?php } ?>
