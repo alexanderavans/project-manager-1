@@ -1,98 +1,99 @@
 * {
-    font-family: sans-serif;
-    font-size: 12pt;
+  font-family: sans-serif;
+  font-size: 12pt;
 }
 
 h1 {
-    font-size: 18pt;
+  font-size: 18pt;
 }
 
 h2 {
-    font-size: 16pt;
+  font-size: 16pt;
 }
 
 h3 {
-    font-size: 14pt;
+  font-size: 14pt;
 }
 
 header h1 {
-    color: blue;
+  color: blue;
 }
 
 nav {
-    margin-top: 10px;
-    margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 nav a,
 nav button {
-    display: inline-block;
-    text-decoration: none;
-    margin: 0 12px 0 0;
-    color: blue;
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 12px 0 0;
+  color: blue;
 }
 
 nav button {
-    border: 0;
-    background-color: white;
-    padding: 0;
+  border: 0;
+  background-color: white;
+  padding: 0;
 }
 
 main nav a {
-    color: red;
+  color: red;
 }
 
 table,
 th,
 td {
-    border: 1px solid blue;
-    border-collapse: collapse;
+  border: 1px solid blue;
+  border-collapse: collapse;
 }
 
 td,
 th {
-    padding: 3px;
+  padding: 3px;
 }
 
 th {
-    text-align: left;
+  text-align: left;
 }
 
 form {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 form label {
-    display: block;
-    margin-bottom: 12px;
+  display: block;
+  margin-bottom: 12px;
+  width: 400px;
 }
 
 form label input {
-    display: block;
-    background-color: white;
-    width: 400px;
+  display: block;
+  background-color: white;
+  width: 400px;
 }
 
 form label textarea {
-    display: block;
-    background-color: white;
-    height: 100px;
-    width: 400px;
+  display: block;
+  background-color: white;
+  height: 100px;
+  width: 400px;
 }
 
 footer p {
-    font-size: smaller;
-    color: lightblue;
+  font-size: smaller;
+  color: lightblue;
 }
 
 footer a {
-    color: lightblue;
+  color: lightblue;
 }
 
 .number {
-    text-align: right;
+  text-align: right;
 }
 
 select {
-    width: 500px;
+  width: 400px;
 }
